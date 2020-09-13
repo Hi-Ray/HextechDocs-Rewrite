@@ -1,0 +1,49 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "tsconfig.json"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:jest/recommended",
+    "prettier",
+    "prettier/react",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react", "@typescript-eslint", "jest"],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "max-len": ["error", {"code": 100}],
+    "prefer-promise-reject-errors": ["off"],
+    "react/prop-types": ["off"],
+    "no-return-assign": ["off"],
+    "import/no-unresolved": ["off"],
+    "no-unescaped-entities": ["off"],
+    "import/prefer-default-export": ["off"],
+    "react/no-unescaped-entities": ["off"],
+    "global-require": ["off"],
+    "@typescript-eslint/semi": ["off"],
+    "react/destructuring-assignment": ["off"],
+    "no-param-reassign": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "jsx-a11y/anchor-is-valid": ["off"],
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx", "ts", "tsx"]}
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+overwrite: true
+schema: "https://hextechdocs-api.celerity.gg/graphql"
+documents: "gql/**/*"
+generates:
+  gql/index.ts:
+    plugins:
+      - "typescript"
+      - "typescript-react-apollo"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
+    config:
+      declarationKind: "interface"
+
