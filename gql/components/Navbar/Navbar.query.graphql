@@ -1,0 +1,9 @@
+query getNavMenuItems {
+    getMenuItems {
+        name
+        id
+        iconUrl
+        slug
+    }
+}
+

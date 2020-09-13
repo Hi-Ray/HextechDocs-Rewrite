@@ -1,0 +1,10 @@
+query GetSidebarCategories {
+    getMenuItems {
+        slug
+        subcategories {
+            name
+            id
+            slug
+        }
+    }
+}
