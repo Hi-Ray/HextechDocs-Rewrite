@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { ThemeProvider } from 'styled-components'
 
+import AppStyled from 'styles/pages/AppStyled'
+
 import 'css-reset-and-normalize/css/reset-and-normalize.min.css'
 import 'css-reset-and-normalize/css/button-reset.min.css'
 import 'css-reset-and-normalize/css/link-reset.min.css'
@@ -39,7 +41,9 @@ export default function MyApp({ Component, pageProps }): JSX.Element {
   return (
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <AppStyled>
+          <Component {...pageProps} />
+        </AppStyled>
       </ThemeProvider>
     </ApolloProvider>
   )

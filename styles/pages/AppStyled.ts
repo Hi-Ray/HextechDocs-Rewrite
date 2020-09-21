@@ -47,7 +47,6 @@ const LayoutStyled = styled.div`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: calc(1em + 1vw);
-    background-color: ${({ theme }) => theme.defaultBGColor};
     button {
       font-size: inherit;
     }
@@ -79,64 +78,20 @@ const LayoutStyled = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
     div {
       min-width: 250px;
     }
 
     main {
+      padding: 2rem;
       font-size: 1rem;
       width: 100%;
       height: 100%;
       display: flex;
-      flex-direction: row;
-      max-width: 100%;
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .home-container {
-      display: flex;
-      justify-content: space-evenly;
-      overflow: hidden;
-      height: 94vh;
-    }
-
-    .home-section {
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-      div {
-        position: absolute;
-        display: flex;
-        top: 75%;
-        justify-content: center;
-        width: 100%;
-        padding: 5% 0;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.65);
-        font-family: 'Roboto', serif;
-        font-size: 1.25rem;
-        font-weight: bold;
-        pointer-events: none;
-        color: rgba(255, 255, 255, 0.75);
-      }
-      img {
-        position: relative;
-        right: 200%;
-        height: 100%;
-        transition: 350ms;
-        cursor: pointer;
-        overflow: hidden;
-        user-select: none;
-        user-input: none;
-        &:hover {
-          transform: scale(100%);
-          filter: brightness(150%);
-          transition: 350ms;
-        }
-      }
+      flex-direction: column;
+      max-width: 1500px;
     }
   }
 
@@ -211,6 +166,7 @@ const LayoutStyled = styled.div`
   .Content {
     width: 100%;
     height: 100%;
+    padding: 1vh 2vw;
     outline: ${({ theme }) => theme.contentOutline} 1px solid;
     background-color: ${({ theme }) => theme.contentBG};
     color: ${({ theme }) => theme.contentTextColor};
