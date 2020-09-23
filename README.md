@@ -4,6 +4,8 @@ A project aimed at improving on the Riot Games' documentation for their vast amo
 
 Please select the index you'd like to learn about from the menu above!
 
+[![Build Status](https://ci.hiray.me/api/badges/Hi-Ray/HextechDocs-Rewrite/status.svg)](https://ci.hiray.me/Hi-Ray/HextechDocs-Rewrite)
+
 ---
 
 ## Contributing

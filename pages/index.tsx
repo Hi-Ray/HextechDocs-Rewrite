@@ -2,7 +2,7 @@ import React from 'react'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser'
 import readme from 'public/static/readme.html'
 
-import Logo from 'assets/images/logo.png'
+import Logo from 'assets/images/poro_shocked.png'
 
 import Layout from 'components/Layout'
 

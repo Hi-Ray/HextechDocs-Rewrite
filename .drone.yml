@@ -1,0 +1,45 @@
+name: Hextech Docs Rewrite
+type: docker
+kind: pipeline
+
+steps:
+
+  - name: build
+    image: node
+    commands:
+      - yarn
+      - yarn prebuild
+      - yarn build
+
+  - name: discord notification
+    pull: always
+    image: appleboy/drone-discord
+    settings:
+      message: "{{#success build.status}} ✅  Build #{{build.number}} of `{{repo.name}}` succeeded.\n\n📝 Commit by {{commit.author}} on `{{commit.branch}}`:\n``` {{commit.message}} ```\n🌐 {{ build.link }}\n\n ✅ duration: {{duration build.started build.finished}} \n\n ✅ started: {{datetime build.started \"2006/01/02 15:04\" \"Europe/London\"}} \n\n ✅ finished: {{datetime build.finished \"2006/01/02 15:04\" \"Europe/London\"}} {{else}} ❌  Build #{{build.number}} of `{{repo.name}}` failed.\n\n📝 Commit by {{commit.author}} on `{{commit.branch}}`:\n``` {{commit.message}} ```\n🌐 {{ build.link }}\n\n ✅ duration: {{duration build.started build.finished}} \n\n ✅ started: {{datetime build.started \"2006/01/02 15:04\" \"Europe/London\"}} \n\n ✅ finished: {{datetime build.finished \"2006/01/02 15:04\" \"Europe/London\"}}{{/success}}\n"
+      webhook_id:
+        from_secret: webhook_id
+      webhook_token:
+        from_secret: webhook_token
+
+  - name: email results
+    image: drillster/drone-email
+    host:
+      from_secret: email_host
+    username:
+      from_secret: email_user
+    password:
+      from_secret: email_pass
+    from: build@hextechdocs.dev
+    recipients: [ dev@hiray.me ]
+    when:
+      status: [ failure, changed, success ]
+
+  - name: upload artifacts
+    image: cschlosser/drone-ftps
+    hostname:
+      from_secret: ftp_host
+    secrets: [ ftp_username, ftp_password ]
+    secure: true
+    clean_dir: true
+    dest_dir:
+      from_secret: ftp_dest

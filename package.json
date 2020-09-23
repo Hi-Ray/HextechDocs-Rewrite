@@ -49,6 +49,7 @@
     "dev": "yarn legal && yarn readme && concurrently \"cross-env NODE_OPTIONS='--inspect' next dev\" \"yarn gql-codegen --watch\"",
     "start": "next start",
     "build": "yarn gql-codegen && next build",
+    "prebuild": "yarn legal && yarn readme",
     "prestart": "yarn legal && yarn readme && yarn build",
     "format": "prettier --write src/**/*.ts{,x}",
     "gql-codegen": "graphql-codegen --config codegen.yml",
