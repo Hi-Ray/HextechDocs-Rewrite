@@ -20,6 +20,8 @@ steps:
         from_secret: webhook_id
       webhook_token:
         from_secret: webhook_token
+    when:
+      status: [ failure, changed, success ]
 
   - name: email results
     image: drillster/drone-email
@@ -43,3 +45,5 @@ steps:
     clean_dir: true
     dest_dir:
       from_secret: ftp_dest
+    when:
+      status: [ success ]
