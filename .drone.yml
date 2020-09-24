@@ -31,9 +31,8 @@ steps:
       from_secret: email_user
     password:
       from_secret: email_pass
-    port:
-      from_secret: email_port
     from: build@hextechdocs.dev
+    skip_verify: true
     recipients: [ dev@hiray.me ]
     when:
       status: [ failure, changed, success ]
