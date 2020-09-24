@@ -6,10 +6,10 @@ import { useRouter } from 'next/router'
 import SidebarContainerStyled from 'styles/components/Sidebar/SidebarContainerStyled'
 
 import { useGetSidebarCategoriesQuery } from 'gql'
-import RenderMD from 'components/Sidebar/components/RenderMD'
-import useAxios from 'axios-hooks'
+// import RenderMD from 'components/Sidebar/components/RenderMD'
+// import useAxios from 'axios-hooks'
 
-const Container: React.FunctionComponent = ({ match }) => {
+const Container: React.FunctionComponent = () => {
   const { loading, error, data } = useGetSidebarCategoriesQuery()
 
   const { pathname, query, asPath } = useRouter()
@@ -24,7 +24,7 @@ const Container: React.FunctionComponent = ({ match }) => {
       {subcategory && (
         <SidebarContainerStyled>
           {items && (
-            <Link href="../" key="BackButton" id="" className="sidebar__item sidebar__item-back">
+            <Link href="../" key="BackButton">
               <a href="../">
                 <span className="material-icons" style={{ fontSize: '1rem' }}>
                   arrow_back
@@ -36,14 +36,7 @@ const Container: React.FunctionComponent = ({ match }) => {
           {items.flatMap(({ slug, subcategories }) =>
             slug === subcategory
               ? subcategories.map((sub) => (
-                  <Link
-                    key={sub.id}
-                    id={sub.id}
-                    to={`/${subcategory}/${sub.slug}`}
-                    href={`/${subcategory}/${sub.slug}`}
-                    className="sidebar__item"
-                    activeClassName="sidebar__item_active"
-                  >
+                  <Link key={sub.id} href={`/${subcategory}/${sub.slug}`}>
                     <a href={`/${subcategory}/${sub.slug}`}>{sub.name}</a>
                   </Link>
                 ))

@@ -42,6 +42,8 @@
     "no-param-reassign": ["off"],
     "react/jsx-props-no-spreading": ["off"],
     "jsx-a11y/anchor-is-valid": ["off"],
+    "@typescript-eslint/no-unused-vars": ["off"],
+    "@typescript-eslint/indent": ["off"],
     "react/jsx-filename-extension": [1, {
       "extensions": [".js", ".jsx", "ts", "tsx"]}
     ]

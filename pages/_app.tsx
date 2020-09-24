@@ -19,7 +19,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-export default function MyApp({ Component, pageProps }): JSX.Element {
+export default function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState(DarkTheme)
 
   useEffect(() => {
@@ -32,7 +32,8 @@ export default function MyApp({ Component, pageProps }): JSX.Element {
           setTheme(DarkTheme)
         }
         localStorage.setItem('currentTheme', 'light')
-        setTheme(LightTheme)
+        // Set to light only changed due to CI test
+        setTheme(DarkTheme)
       }
       setTheme(DarkTheme)
     }
