@@ -74,27 +74,6 @@ const LayoutStyled = styled.div`
     min-height: 50px;
   }
 
-  .content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-
-    div {
-      min-width: 250px;
-    }
-
-    main {
-      padding: 2rem;
-      font-size: 1rem;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      max-width: 1500px;
-    }
-  }
-
   code,
   pre {
     font-family: JetBrainsMono, source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
@@ -163,18 +142,35 @@ const LayoutStyled = styled.div`
     }
   }
 
-  .Content {
+  .content {
     width: 100%;
     height: 100%;
-    padding: 1vh 2vw;
     outline: ${({ theme }) => theme.contentOutline} 1px solid;
     background-color: ${({ theme }) => theme.contentBG};
     color: ${({ theme }) => theme.contentTextColor};
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
+
+    display: flex;
+    flex-direction: row;
+
     a {
       color: ${({ theme }) => theme.linkColor};
+    }
+
+    div {
+      min-width: 250px;
+    }
+
+    main {
+      padding: 2rem;
+      font-size: 1rem;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      max-width: 1500px;
     }
   }
 

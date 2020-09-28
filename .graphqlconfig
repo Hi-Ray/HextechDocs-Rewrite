@@ -1,9 +1,9 @@
 {
-  "name": "HhextechDocs GraphQL Schema",
+  "name": "Hextech Docs GraphQL Schema",
   "schemaPath": "./schema.graphql",
   "extensions": {
     "endpoints": {
-      "Default GraphQL Endpoint": {
+      "Hextech Docs GraphQL Endpoint": {
         "url": "https://hextechdocs-api.celerity.gg/graphql",
         "headers": {
           "user-agent": "JS GraphQL"

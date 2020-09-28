@@ -19,7 +19,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   return (
     <LayoutStyled>
       <Head>
-        <title>{title}</title>
+        <title>{title ? 'Hextech Docs' : `${title} - Hextech Docs`}</title>
         <meta charSet="utf-8" />
         <link rel="icon" href={Loading} />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

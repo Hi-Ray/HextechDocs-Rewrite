@@ -16,7 +16,9 @@ const MarkdownParser = new MarkdownIt('default', {
     if (lang && hljs.getLanguage(lang)) {
       try {
         return `<pre class="hljs"><code>${hljs.highlight(lang, str, true).value}</code></pre>`
-      } catch (err) {}
+      } catch (err) {
+        console.error(err)
+      }
     }
 
     return `<pre class="hljs"><code>${MarkdownParser.utils.escapeHtml(str)}</code></pre>`

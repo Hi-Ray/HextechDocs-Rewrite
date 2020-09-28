@@ -2,13 +2,17 @@ overwrite: true
 schema: "https://hextechdocs-api.celerity.gg/graphql"
 documents: "gql/**/*"
 generates:
-  gql/index.ts:
-    plugins:
-      - "typescript"
-      - "typescript-react-apollo"
-  ./graphql.schema.json:
+  graphql.schema.json:
     plugins:
       - "introspection"
+  gql/index.tsx:
+    plugins:
+    - "typescript"
+    - "typescript-operations"
+    - "typescript-react-apollo"
+    schema: "graphql.schema.json"
     config:
-      declarationKind: "interface"
-
+      withComponent: false
+      withHOC: false
+      withHooks: true
+      documentMode: documentNode
