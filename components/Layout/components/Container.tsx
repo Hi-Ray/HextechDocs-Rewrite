@@ -49,6 +49,8 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={image} />
         <meta name="theme-color" content="#4285f4" />
+        !--External Stylesheets--
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
       </Head>
       <header>
         <nav>

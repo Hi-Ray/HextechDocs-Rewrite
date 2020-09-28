@@ -20,7 +20,7 @@ const Container: React.FunctionComponent = () => {
     <NavbarStyledContainer>
       <Link href="/">
         <a href="">
-          <NavbarButton imageUrl={Logo} altText="Home" slug="/" hideHover hideActive />
+          <NavbarButton imageUrl="/images/logo.png" altText="Home" slug="/" hideHover hideActive />
         </a>
       </Link>
       {data.getMenuItems.map(({ name, slug, id, iconUrl }) => (

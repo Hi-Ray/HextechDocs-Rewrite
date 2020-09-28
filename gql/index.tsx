@@ -11,6 +11,77 @@ export type Scalars = {
   Float: number;
 };
 
+export type Subcategory = {
+  __typename?: 'Subcategory';
+  /** A globally unique subcategory ID */
+  id?: Maybe<Scalars['ID']>;
+  /** A user friendly name for the subcategory */
+  name?: Maybe<Scalars['String']>;
+  /** A URL friendly name for the subcategory */
+  slug?: Maybe<Scalars['String']>;
+};
+
+export type Document = {
+  __typename?: 'Document';
+  /** A list of every contributor */
+  authors?: Maybe<Array<Maybe<Author>>>;
+  /** The category of this document */
+  category?: Maybe<Category>;
+  /** The contents of this document in markdown */
+  content?: Maybe<Scalars['String']>;
+  /** Unix timestamp on when the document was created */
+  createdAt?: Maybe<Scalars['String']>;
+  /** A unique document ID */
+  id?: Maybe<Scalars['ID']>;
+  /** A list of every marker attached to this document */
+  markers?: Maybe<Array<Maybe<Marker>>>;
+  /** A URL friendly document name */
+  slug?: Maybe<Scalars['String']>;
+  /** The subcategory of this document */
+  subcategory?: Maybe<Subcategory>;
+  /**
+   * A list of every tag attached to the document
+   * @deprecated Unused variable
+   */
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** The user friendly title of the document */
+  title?: Maybe<Scalars['String']>;
+  /** Unix timestamp on when the document was last updated */
+  updatedAt?: Maybe<Scalars['String']>;
+};
+
+export type Marker = {
+  __typename?: 'Marker';
+  /** The display name clients should use when displaying this marker */
+  displayName?: Maybe<Scalars['String']>;
+  /** Unique and URL friendly marker ID */
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type Author = {
+  __typename?: 'Author';
+  /** The Github handle of the author */
+  github?: Maybe<Scalars['String']>;
+  /** The Github display name of the author, returns null if the user decided to keep it private */
+  name?: Maybe<Scalars['String']>;
+};
+
+export type Category = {
+  __typename?: 'Category';
+  /** The absolute URL clients should use when fetching the icon for this category */
+  iconUrl?: Maybe<Scalars['String']>;
+  /** The unique ID of this category */
+  id?: Maybe<Scalars['ID']>;
+  /** A user friendly name for the category */
+  name?: Maybe<Scalars['String']>;
+  /** The absolute URL for the category description document clients should use */
+  readmeUrl?: Maybe<Scalars['String']>;
+  /** A URL friendly name for the category */
+  slug?: Maybe<Scalars['String']>;
+  /** A list of every subcategory for this category */
+  subcategories?: Maybe<Array<Maybe<Subcategory>>>;
+};
+
 export type Query = {
   __typename?: 'Query';
   /** Get a document based on its URL slug */
@@ -61,77 +132,6 @@ export type QueryNarrowSubcategoryArgs = {
 
 export type QueryPerformSearchArgs = {
   query?: Maybe<Scalars['String']>;
-};
-
-export type Subcategory = {
-  __typename?: 'Subcategory';
-  /** A globally unique subcategory ID */
-  id?: Maybe<Scalars['ID']>;
-  /** A user friendly name for the subcategory */
-  name?: Maybe<Scalars['String']>;
-  /** A URL friendly name for the subcategory */
-  slug?: Maybe<Scalars['String']>;
-};
-
-export type Author = {
-  __typename?: 'Author';
-  /** The Github handle of the author */
-  github?: Maybe<Scalars['String']>;
-  /** The Github display name of the author, returns null if the user decided to keep it private */
-  name?: Maybe<Scalars['String']>;
-};
-
-export type Category = {
-  __typename?: 'Category';
-  /** The absolute URL clients should use when fetching the icon for this category */
-  iconUrl?: Maybe<Scalars['String']>;
-  /** The unique ID of this category */
-  id?: Maybe<Scalars['ID']>;
-  /** A user friendly name for the category */
-  name?: Maybe<Scalars['String']>;
-  /** The absolute URL for the category description document clients should use */
-  readmeUrl?: Maybe<Scalars['String']>;
-  /** A URL friendly name for the category */
-  slug?: Maybe<Scalars['String']>;
-  /** A list of every subcategory for this category */
-  subcategories?: Maybe<Array<Maybe<Subcategory>>>;
-};
-
-export type Document = {
-  __typename?: 'Document';
-  /** A list of every contributor */
-  authors?: Maybe<Array<Maybe<Author>>>;
-  /** The category of this document */
-  category?: Maybe<Category>;
-  /** The contents of this document in markdown */
-  content?: Maybe<Scalars['String']>;
-  /** Unix timestamp on when the document was created */
-  createdAt?: Maybe<Scalars['String']>;
-  /** A unique document ID */
-  id?: Maybe<Scalars['ID']>;
-  /** A list of every marker attached to this document */
-  markers?: Maybe<Array<Maybe<Marker>>>;
-  /** A URL friendly document name */
-  slug?: Maybe<Scalars['String']>;
-  /** The subcategory of this document */
-  subcategory?: Maybe<Subcategory>;
-  /**
-   * A list of every tag attached to the document
-   * @deprecated Unused variable
-   */
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
-  /** The user friendly title of the document */
-  title?: Maybe<Scalars['String']>;
-  /** Unix timestamp on when the document was last updated */
-  updatedAt?: Maybe<Scalars['String']>;
-};
-
-export type Marker = {
-  __typename?: 'Marker';
-  /** The display name clients should use when displaying this marker */
-  displayName?: Maybe<Scalars['String']>;
-  /** Unique and URL friendly marker ID */
-  id?: Maybe<Scalars['ID']>;
 };
 
 export type GetNavMenuItemsQueryVariables = Exact<{ [key: string]: never; }>;

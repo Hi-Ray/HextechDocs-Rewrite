@@ -9,7 +9,6 @@ import 'css-reset-and-normalize/css/reset-and-normalize.min.css'
 import 'css-reset-and-normalize/css/button-reset.min.css'
 import 'css-reset-and-normalize/css/link-reset.min.css'
 import 'github-markdown-css'
-import 'material-design-icons'
 
 import DarkTheme from 'styles/themes/DarkTheme'
 import LightTheme from 'styles/themes/LightTheme'

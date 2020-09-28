@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser'
+// @ts-ignore
 import readme from 'public/static/readme.html'
 
 import Logo from 'assets/images/poro_shocked.png'
@@ -13,4 +14,5 @@ const About: React.FunctionComponent = () => {
     </Layout>
   )
 }
+
 export default About
