@@ -38,20 +38,6 @@ steps:
     when:
       status: [ failure, changed, success ]
 
-  - name: email results
-    image: drillster/drone-email
-    host:
-      from_secret: email_host
-    username:
-      from_secret: email_user
-    password:
-      from_secret: email_pass
-    from: build@hextechdocs.dev
-    skip_verify: true
-    recipients: [ dev@hiray.me ]
-    when:
-      status: [ failure, changed, success ]
-
   - name: upload artifacts
     image: cschlosser/drone-ftps
     hostname:
